@@ -1,0 +1,140 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg8v3gnoxlrle"]
+
+[ext_resource type="PackedScene" uid="uid://c3xyhwelbeuur" path="res://player.tscn" id="1_3f3uf"]
+[ext_resource type="Script" path="res://game.gd" id="1_16jqa"]
+[ext_resource type="PackedScene" uid="uid://cn5011kq8d1ob" path="res://pine_tree.tscn" id="2_3j3bo"]
+
+[sub_resource type="Curve2D" id="Curve2D_gdyfh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -590, -307, 0, 0, 0, 0, 1841, -307, 0, 0, 0, 0, 1844, 1104, 0, 0, 0, 0, -590, 1108, 0, 0, 0, 0, -590, -289)
+}
+point_count = 5
+
+[sub_resource type="GDScript" id="GDScript_fg0sh"]
+script/source = "extends CanvasLayer
+
+	
+"
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_16jqa")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -81
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_bottom = 0.056
+offset_left = -497.0
+offset_top = -207.0
+offset_right = 1791.0
+offset_bottom = 994.68
+
+[node name="Player" parent="." instance=ExtResource("1_3f3uf")]
+position = Vector2(647, 411)
+
+[node name="Path2D" type="Path2D" parent="Player"]
+position = Vector2(-647, -411)
+curve = SubResource("Curve2D_gdyfh")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+position = Vector2(-590, -307)
+
+[node name="Node2D" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="PineTree" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(-144, 711)
+
+[node name="PineTree2" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(321, 711)
+
+[node name="PineTree3" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(1159, 767)
+
+[node name="PineTree4" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(-27, 283)
+
+[node name="PineTree5" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(1149, 67)
+
+[node name="PineTree6" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(1519, 297)
+
+[node name="PineTree7" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(833, 571)
+
+[node name="PineTree8" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(1581, 674)
+
+[node name="PineTree9" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(1563, 923)
+
+[node name="PineTree10" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(1474, 952)
+
+[node name="PineTree11" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(1567, 1002)
+
+[node name="PineTree12" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(526, 279)
+
+[node name="PineTree13" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(793, -63)
+
+[node name="PineTree14" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(330, -52)
+
+[node name="PineTree15" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(-108, -312)
+
+[node name="PineTree16" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(437, -358)
+
+[node name="PineTree17" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(1050, -315)
+
+[node name="PineTree18" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(1599, -83)
+
+[node name="PineTree19" parent="Node2D" instance=ExtResource("2_3j3bo")]
+position = Vector2(427, 1129)
+
+[node name="MobSpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+process_mode = 1
+visible = false
+script = SubResource("GDScript_fg0sh")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.231373, 0.231373, 0.231373, 0.623529)
+
+[node name="Label" type="Label" parent="CanvasLayer2/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = -57.0
+offset_right = 107.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 76
+text = "GAME OVER
+again?"
+horizontal_alignment = 1
+
+[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
+[connection signal="timeout" from="MobSpawnTimer" to="." method="_on_mob_spawn_timer_timeout"]
