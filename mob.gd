@@ -10,6 +10,7 @@ var health = 3
 @onready var slime: Node2D = $Slime
 @onready var game = get_node("/root/Game")
 
+
 func _ready() -> void:
 	slime.play_walk()
 	
@@ -29,6 +30,11 @@ func take_damage():
 		var smoke = SMOKE_SCENE.instantiate()
 		get_parent().add_child(smoke)
 		smoke.global_position = global_position
+		
+		const CRYSTAL = preload("res://coin_crystal.tscn")
+		var coin = CRYSTAL.instantiate()
+		get_parent().add_child(coin)
+		coin.global_position = global_position
 
 func die():
 	game.increment_score()
