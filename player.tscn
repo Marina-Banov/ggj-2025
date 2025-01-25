@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c3xyhwelbeuur"]
+[gd_scene load_steps=25 format=3 uid="uid://c3xyhwelbeuur"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_eev5p"]
 [ext_resource type="Texture2D" uid="uid://cj2byeim5k0wg" path="res://characters/al/Untitled-Artwork-1.png" id="2_a11b3"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cb5uupp22nks1" path="res://characters/al/Untitled-Artwork-16.png" id="17_sqm5w"]
 [ext_resource type="Texture2D" uid="uid://bt6hctlnwid10" path="res://characters/al/Untitled-Artwork-17.png" id="18_yecq4"]
 [ext_resource type="Texture2D" uid="uid://8rbngvhjheyt" path="res://characters/al/Untitled-Artwork-18.png" id="19_4c8hg"]
+[ext_resource type="Texture2D" uid="uid://bb1s8yuhaxo38" path="res://bubbles/carbon.png" id="20_b71mb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nqndj"]
 animations = [{
@@ -138,10 +139,20 @@ shape = SubResource("CircleShape2D_cep1x")
 [node name="ShootingPoint" type="Marker2D" parent="ShootingRange"]
 unique_name_in_owner = true
 position = Vector2(115, -178)
-scale = Vector2(1, 1)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Shield" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(20, -53)
+scale = Vector2(0.628512, 0.628512)
+texture = ExtResource("20_b71mb")
+
+[node name="ShootingTimer" type="Timer" parent="."]
 wait_time = 0.25
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="ShieldTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="ShootingTimer" to="." method="_on_shooting_timer_timeout"]
+[connection signal="timeout" from="ShieldTimer" to="." method="_on_shield_timer_timeout"]
