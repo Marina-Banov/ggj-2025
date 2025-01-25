@@ -1,14 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://cg8v3gnoxlrle"]
+[gd_scene load_steps=8 format=3 uid="uid://cg8v3gnoxlrle"]
 
 [ext_resource type="PackedScene" uid="uid://c3xyhwelbeuur" path="res://player.tscn" id="1_3f3uf"]
 [ext_resource type="Script" path="res://game.gd" id="1_16jqa"]
-[ext_resource type="PackedScene" uid="uid://cn5011kq8d1ob" path="res://pine_tree.tscn" id="2_3j3bo"]
 
 [sub_resource type="Curve2D" id="Curve2D_gdyfh"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -590, -307, 0, 0, 0, 0, 1841, -307, 0, 0, 0, 0, 1844, 1104, 0, 0, 0, 0, -590, 1108, 0, 0, 0, 0, -590, -289)
 }
 point_count = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ndm5"]
+bg_color = Color(0.129412, 0.0862745, 0, 0.835294)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2b5i"]
+bg_color = Color(0, 1, 0.0745098, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svj2v"]
+bg_color = Color(0.817551, 0.221341, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="GDScript" id="GDScript_fg0sh"]
 script/source = "extends CanvasLayer
@@ -42,69 +62,31 @@ curve = SubResource("Curve2D_gdyfh")
 [node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
 position = Vector2(-590, -307)
 
-[node name="Node2D" type="Node2D" parent="."]
-y_sort_enabled = true
-
-[node name="PineTree" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(-144, 711)
-
-[node name="PineTree2" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(321, 711)
-
-[node name="PineTree3" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(1159, 767)
-
-[node name="PineTree4" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(-27, 283)
-
-[node name="PineTree5" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(1149, 67)
-
-[node name="PineTree6" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(1519, 297)
-
-[node name="PineTree7" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(833, 571)
-
-[node name="PineTree8" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(1581, 674)
-
-[node name="PineTree9" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(1563, 923)
-
-[node name="PineTree10" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(1474, 952)
-
-[node name="PineTree11" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(1567, 1002)
-
-[node name="PineTree12" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(526, 279)
-
-[node name="PineTree13" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(793, -63)
-
-[node name="PineTree14" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(330, -52)
-
-[node name="PineTree15" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(-108, -312)
-
-[node name="PineTree16" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(437, -358)
-
-[node name="PineTree17" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(1050, -315)
-
-[node name="PineTree18" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(1599, -83)
-
-[node name="PineTree19" parent="Node2D" instance=ExtResource("2_3j3bo")]
-position = Vector2(427, 1129)
-
 [node name="MobSpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="HUD"]
+offset_left = 75.0
+offset_top = 53.0
+offset_right = 371.0
+offset_bottom = 80.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0ndm5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_g2b5i")
+value = 50.0
+show_percentage = false
+
+[node name="XPBar" type="ProgressBar" parent="HUD"]
+offset_left = 75.0
+offset_top = 87.0
+offset_right = 371.0
+offset_bottom = 114.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0ndm5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_svj2v")
+value = 50.0
+show_percentage = false
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 process_mode = 1

@@ -40,6 +40,7 @@ func _spawn_smoke_and_coin():
 	# BITNO I ODVRATNO - something something collision physics object brrrr aaaaa
 	get_parent().call_deferred("add_child", coin)
 	coin.global_position = global_position
+	coin.coin_collected.connect(player._on_coin_collected)
 
 
 func die():

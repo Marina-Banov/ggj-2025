@@ -2,15 +2,24 @@ extends CharacterBody2D
 
 signal health_depleted
 
-const SPEED = 450.0
 @onready var happy_boo: Node2D = $HappyBoo
-@onready var health_bar: ProgressBar = $HealthBar
+@onready var health_bar: ProgressBar = get_node("/root/Game/HUD/HealthBar")
+@onready var xp_bar: ProgressBar = get_node("/root/Game/HUD/XPBar")
 
+var xp = 0
+var level = 1
+
+var speed = 450.0
 var health = 100.0
+var attack_speed = 1
+var damage = 1
+
+func _on_coin_collected():
+	xp += 1
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = direction * SPEED
+	velocity = direction * speed
 	move_and_slide()
 	
 	if velocity.length() > 0:
@@ -27,4 +36,5 @@ func _physics_process(delta: float) -> void:
 			health_depleted.emit() # unused but usefull
 			print("dead")
 	health_bar.value = health
+	xp_bar.value = xp
 	

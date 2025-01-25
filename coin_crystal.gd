@@ -5,5 +5,4 @@ signal coin_collected
 
 func _on_body_entered(body: Node2D) -> void:
 	queue_free()
-	coin_collected.emit() # unused, would like to know how to do it this way
-	game.coin_collected()
+	coin_collected.emit()
