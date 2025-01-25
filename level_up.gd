@@ -14,7 +14,7 @@ func _on_button_speed_pressed() -> void:
 
 
 func _on_button_attack_speed_pressed() -> void:
-	player.attack_speed -= 0.01
+	player.attack_speed = max(0.1, player.attack_speed - 0.05)
 	_resume()
 
 
@@ -26,4 +26,3 @@ func _on_button_health_pressed() -> void:
 func _resume():
 	Engine.time_scale = 1
 	visible = false
-	player.xp = 0
