@@ -6,6 +6,7 @@ var speed = 200.0
 var health = 5
 var is_poisoned = false
 var damage_over_time_rate = 0.5
+var pushback_force = Vector2.ZERO
 
 # "hardcoded" method of getting player
 # dok se vrti igra, dobije se "remote" tab lijevo u inspectoru
@@ -22,8 +23,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * speed
+	velocity = direction * speed + pushback_force
 	move_and_slide()
+	pushback_force = lerp(pushback_force, Vector2.ZERO, 0.1)
 
 
 func take_damage(damage=player.damage):
@@ -36,6 +38,10 @@ func take_damage(damage=player.damage):
 
 func decrease_speed():
 	speed = max(1.0, speed-50.0)
+
+
+func add_pushback(force: Vector2) -> void:
+	pushback_force = force
 
 
 func get_poisoned():

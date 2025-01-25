@@ -28,7 +28,8 @@ func _on_body_entered(body: Node2D) -> void:
 		match type:
 			"chlorine":
 				body.get_poisoned()
-			"oxygen": # Push back
-				pass
+			"oxygen":
+				var pushback_dir = (body.global_position - global_position).normalized() * 1000.
+				body.add_pushback(pushback_dir)
 			"hydrogen":
 				body.decrease_speed()

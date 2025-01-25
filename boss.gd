@@ -28,6 +28,10 @@ func decrease_speed():
 	pass
 
 
+func add_pushback(force: Vector2) -> void:
+	pass
+
+
 func take_damage(damage=player.damage):
 	health -= damage
 	slime.play_hurt()
