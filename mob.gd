@@ -37,6 +37,7 @@ func _spawn_smoke_and_coin():
 	const CRYSTAL = preload("res://coin_crystal.tscn")
 	var coin = CRYSTAL.instantiate()
 	#get_parent().add_child(coin)
+	# BITNO I ODVRATNO - something something collision physics object brrrr aaaaa
 	get_parent().call_deferred("add_child", coin)
 	coin.global_position = global_position
 
