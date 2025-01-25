@@ -16,3 +16,7 @@ script = ExtResource("1_2s5px")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -27)
 shape = SubResource("CircleShape2D_u2rpx")
+
+[node name="ChlorineTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ChlorineTimer" to="." method="_on_chlorine_timer_timeout"]

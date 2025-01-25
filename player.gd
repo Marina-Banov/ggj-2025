@@ -76,6 +76,7 @@ func _physics_process(delta: float) -> void:
 
 	var enemies_in_range = shooting_range.get_overlapping_bodies()
 	if enemies_in_range.size() > 0:
+		# TODO aim at the closest enemy, not the first
 		var target_enemy = enemies_in_range[0]
 		target_position = target_enemy.global_position
 

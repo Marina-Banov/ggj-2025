@@ -43,3 +43,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_jwkec")
 max_value = 20.0
 value = 20.0
 show_percentage = false
+
+[node name="ChlorineTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ChlorineTimer" to="." method="_on_chlorine_timer_timeout"]

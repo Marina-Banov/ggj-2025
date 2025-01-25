@@ -4,6 +4,8 @@ signal mob_died
 
 var speed = 200.0
 var health = 5
+var is_poisoned = false
+var damage_over_time_rate = 0.5
 
 # "hardcoded" method of getting player
 # dok se vrti igra, dobije se "remote" tab lijevo u inspectoru
@@ -11,6 +13,7 @@ var health = 5
 @onready var player = get_node("/root/Game/Player")
 @onready var slime: Node2D = $Slime
 @onready var game = get_node("/root/Game")
+@onready var chlorine_timer: Timer = $ChlorineTimer
 
 
 func _ready() -> void:
@@ -23,8 +26,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func take_damage():
-	health -= player.damage
+func take_damage(damage=player.damage):
+	health -= damage
 	slime.play_hurt()
 	if health <= 0:
 		_spawn_smoke_and_coin()
@@ -33,6 +36,12 @@ func take_damage():
 
 func decrease_speed():
 	speed = max(1.0, speed-50.0)
+
+
+func get_poisoned():
+	if not is_poisoned:
+		is_poisoned = true
+		chlorine_timer.start()
 
 
 func _spawn_smoke_and_coin():
@@ -54,3 +63,8 @@ func die():
 	game.increment_score()
 	mob_died.emit()
 	queue_free()
+
+
+func _on_chlorine_timer_timeout() -> void:
+	if is_poisoned:
+		take_damage(damage_over_time_rate)

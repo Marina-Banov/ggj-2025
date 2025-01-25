@@ -3,20 +3,33 @@ extends CharacterBody2D
 signal boss_died
 
 const SPEED = 0
-var health = 10
+var health = 20
+var is_poisoned = false
+var damage_over_time_rate = 0.5
 
 @onready var player = get_node("/root/Game/Player")
 @onready var slime: Node2D = $Slime
 @onready var game = get_node("/root/Game")
 @onready var health_bar: ProgressBar = $HealthBar
+@onready var chlorine_timer: Timer = $ChlorineTimer
 
 
 func _ready() -> void:
 	health_bar.value = health
 
 
-func take_damage():
-	health -= player.damage
+func get_poisoned():
+	if not is_poisoned:
+		is_poisoned = true
+		chlorine_timer.start()
+
+
+func decrease_speed():
+	pass
+
+
+func take_damage(damage=player.damage):
+	health -= damage
 	slime.play_hurt()
 	health_bar.value = health
 	if health <= 0:
@@ -44,3 +57,8 @@ func die():
 	game.increment_score()
 	boss_died.emit()
 	queue_free()
+
+
+func _on_chlorine_timer_timeout() -> void:
+	if is_poisoned:
+		take_damage(damage_over_time_rate)
