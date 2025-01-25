@@ -25,16 +25,21 @@ func take_damage():
 	health -= 1
 	slime.play_hurt()
 	if health <= 0:
+		_spawn_smoke_and_coin()
 		die()
-		const SMOKE_SCENE = preload("res://smoke_explosion/smoke_explosion.tscn")
-		var smoke = SMOKE_SCENE.instantiate()
-		get_parent().add_child(smoke)
-		smoke.global_position = global_position
-		
-		const CRYSTAL = preload("res://coin_crystal.tscn")
-		var coin = CRYSTAL.instantiate()
-		get_parent().add_child(coin)
-		coin.global_position = global_position
+
+func _spawn_smoke_and_coin():
+	const SMOKE_SCENE = preload("res://smoke_explosion/smoke_explosion.tscn")
+	var smoke = SMOKE_SCENE.instantiate()
+	get_parent().add_child(smoke)
+	smoke.global_position = global_position
+	
+	const CRYSTAL = preload("res://coin_crystal.tscn")
+	var coin = CRYSTAL.instantiate()
+	#get_parent().add_child(coin)
+	get_parent().call_deferred("add_child", coin)
+	coin.global_position = global_position
+
 
 func die():
 	game.increment_score()

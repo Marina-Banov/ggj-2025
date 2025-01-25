@@ -10,7 +10,10 @@ func _ready() -> void:
 	spawn_mob()
 	spawn_mob()
 	spawn_mob()
-	
+
+func coin_collected():
+	print("i picked up a coin, do something here (TODO)")
+
 func spawn_mob():
 	var new_mob = preload("res://mob.tscn").instantiate()
 	path_follow_2d.progress_ratio = randf()
