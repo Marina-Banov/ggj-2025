@@ -10,7 +10,7 @@ radius = 18.0
 top_level = true
 rotation = 0.0608866
 collision_layer = 0
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_wxc06")
 
 [node name="Projectile" type="Sprite2D" parent="."]

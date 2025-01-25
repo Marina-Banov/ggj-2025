@@ -6,8 +6,8 @@
 script = ExtResource("1_c2llv")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1284.0
-offset_bottom = 721.0
+offset_right = 1576.0
+offset_bottom = 890.0
 color = Color(0.1404, 0.20994, 0.36, 0.517647)
 
 [node name="Label" type="Label" parent="."]
@@ -29,31 +29,31 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ButtonDamage" type="Button" parent="."]
-offset_left = 240.0
-offset_top = 434.0
-offset_right = 375.0
-offset_bottom = 519.0
+offset_left = 369.0
+offset_top = 550.0
+offset_right = 504.0
+offset_bottom = 635.0
 text = "DAMAGE"
 
 [node name="ButtonSpeed" type="Button" parent="."]
-offset_left = 458.0
-offset_top = 433.0
-offset_right = 593.0
-offset_bottom = 518.0
+offset_left = 587.0
+offset_top = 549.0
+offset_right = 722.0
+offset_bottom = 634.0
 text = "SPEED"
 
 [node name="ButtonAttackSpeed" type="Button" parent="."]
-offset_left = 694.0
-offset_top = 433.0
-offset_right = 829.0
-offset_bottom = 518.0
+offset_left = 823.0
+offset_top = 549.0
+offset_right = 958.0
+offset_bottom = 634.0
 text = "ATTACK_SPEED"
 
 [node name="ButtonHealth" type="Button" parent="."]
-offset_left = 875.0
-offset_top = 434.0
-offset_right = 1010.0
-offset_bottom = 519.0
+offset_left = 1004.0
+offset_top = 550.0
+offset_right = 1139.0
+offset_bottom = 635.0
 text = "HEALTH"
 
 [connection signal="pressed" from="ButtonDamage" to="." method="_on_button_damage_pressed"]
