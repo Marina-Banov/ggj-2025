@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://rv4vrcj037e8"]
+
+[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://scenes/slime.tscn" id="1_21e8m"]
+[ext_resource type="Script" path="res://scripts/boss.gd" id="1_xcr4f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5qck5"]
+radius = 52.0865
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gue8"]
+bg_color = Color(0.129412, 0.0862745, 0, 0.835294)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwkec"]
+bg_color = Color(0, 1, 0.0745098, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[node name="Boss" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_xcr4f")
+metadata/type = ""
+
+[node name="Slime" parent="." instance=ExtResource("1_21e8m")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -28)
+shape = SubResource("CircleShape2D_5qck5")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -61.6667
+offset_top = 32.0
+offset_right = 66.3333
+offset_bottom = 44.0
+theme_override_styles/background = SubResource("StyleBoxFlat_7gue8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jwkec")
+max_value = 20.0
+value = 20.0
+show_percentage = false
+
+[node name="ChlorineTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ChlorineTimer" to="." method="_on_chlorine_timer_timeout"]
