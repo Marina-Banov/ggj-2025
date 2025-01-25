@@ -1,7 +1,8 @@
 extends Node2D
 @onready var path_follow_2d: PathFollow2D = $Player/Path2D/PathFollow2D
-@onready var label: Label = $CanvasLayer2/ColorRect/Label
-@onready var gameover: CanvasLayer = $CanvasLayer2
+@onready var label: Label = $GameOver/ColorRect/Label
+@onready var gameover: CanvasLayer = $GameOver
+@onready var levelup: CanvasLayer = $LevelUp
 
 var score = 0
 
@@ -33,3 +34,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
 		Engine.time_scale = 1
 		get_tree().reload_current_scene()
+
+func _on_player_should_level_up() -> void:
+	levelup.visible = true
+	Engine.time_scale = 0

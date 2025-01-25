@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cg8v3gnoxlrle"]
+[gd_scene load_steps=9 format=3 uid="uid://cg8v3gnoxlrle"]
 
 [ext_resource type="PackedScene" uid="uid://c3xyhwelbeuur" path="res://player.tscn" id="1_3f3uf"]
 [ext_resource type="Script" path="res://game.gd" id="1_16jqa"]
+[ext_resource type="PackedScene" uid="uid://c82wcpf0xsbso" path="res://level_up.tscn" id="3_g73d3"]
 
 [sub_resource type="Curve2D" id="Curve2D_gdyfh"]
 _data = {
@@ -85,15 +86,16 @@ offset_right = 371.0
 offset_bottom = 114.0
 theme_override_styles/background = SubResource("StyleBoxFlat_0ndm5")
 theme_override_styles/fill = SubResource("StyleBoxFlat_svj2v")
-value = 50.0
+max_value = 3.0
+value = 3.0
 show_percentage = false
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="GameOver" type="CanvasLayer" parent="."]
 process_mode = 1
 visible = false
 script = SubResource("GDScript_fg0sh")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -101,7 +103,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.231373, 0.231373, 0.231373, 0.623529)
 
-[node name="Label" type="Label" parent="CanvasLayer2/ColorRect"]
+[node name="Label" type="Label" parent="GameOver/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -119,5 +121,9 @@ text = "GAME OVER
 again?"
 horizontal_alignment = 1
 
+[node name="LevelUp" parent="." instance=ExtResource("3_g73d3")]
+visible = false
+
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
+[connection signal="should_level_up" from="Player" to="." method="_on_player_should_level_up"]
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_mob_spawn_timer_timeout"]

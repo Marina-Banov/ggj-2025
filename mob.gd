@@ -1,6 +1,8 @@
 extends CharacterBody2D
+
 signal mob_died
-const SPEED = 300
+
+const SPEED = 200
 var health = 3
 
 # "hardcoded" method of getting player
@@ -13,7 +15,7 @@ var health = 3
 
 func _ready() -> void:
 	slime.play_walk()
-	
+
 
 func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
@@ -22,7 +24,7 @@ func _physics_process(delta: float) -> void:
 
 
 func take_damage():
-	health -= 1
+	health -= player.damage
 	slime.play_hurt()
 	if health <= 0:
 		_spawn_smoke_and_coin()
