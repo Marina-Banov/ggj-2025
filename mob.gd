@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 signal mob_died
 
-const SPEED = 200
-var health = 3
+var speed = 200.0
+var health = 5
 
 # "hardcoded" method of getting player
 # dok se vrti igra, dobije se "remote" tab lijevo u inspectoru
@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * SPEED
+	velocity = direction * speed
 	move_and_slide()
 
 
@@ -29,6 +29,11 @@ func take_damage():
 	if health <= 0:
 		_spawn_smoke_and_coin()
 		die()
+
+
+func decrease_speed():
+	speed = max(1.0, speed-50.0)
+
 
 func _spawn_smoke_and_coin():
 	const SMOKE_SCENE = preload("res://smoke_explosion/smoke_explosion.tscn")

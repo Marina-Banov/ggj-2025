@@ -147,7 +147,7 @@ scale = Vector2(0.628512, 0.628512)
 texture = ExtResource("20_b71mb")
 
 [node name="ShootingTimer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.35
 autostart = true
 
 [node name="ShieldTimer" type="Timer" parent="."]

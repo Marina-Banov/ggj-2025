@@ -48,6 +48,7 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * speed
 	move_and_slide()
 
+	# TODO manipulate opacity instead of toggling visibility
 	shield.visible = has_shield and has_shield_active
 
 	if velocity.length() > 0:

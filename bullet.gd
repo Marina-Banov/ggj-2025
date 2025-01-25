@@ -1,10 +1,16 @@
 extends Area2D
 
-const SPEED = 500
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+const SPEED = 300
 const RANGE = 1000
 
 var travelled_distance = 0
 var type = "normal"
+
+
+func _ready() -> void:
+	animated_sprite.play(type)
 
 
 func _physics_process(delta: float) -> void:
@@ -20,11 +26,10 @@ func _on_body_entered(body: Node2D) -> void:
 	queue_free()
 	if body.has_method("take_damage"):
 		body.take_damage()
-
-	#match type:
-		#"chlorine": # DoT
-			#pass
-		#"oxygen": # Push back
-			#pass
-		#"hydrogen": # enemy speed
-			#pass
+		match type:
+			"chlorine": # DoT
+				pass
+			"oxygen": # Push back
+				pass
+			"hydrogen":
+				body.decrease_speed()
