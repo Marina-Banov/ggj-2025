@@ -1,4 +1,4 @@
-[gd_scene load_steps=176 format=3 uid="uid://vwdp52gf1jhy"]
+[gd_scene load_steps=177 format=3 uid="uid://vwdp52gf1jhy"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_8h14g"]
 [ext_resource type="Texture2D" uid="uid://h67gdxmypnh1" path="res://assets/boss_carbon/00.png" id="3_1k4bd"]
@@ -742,11 +742,14 @@ corner_radius_bottom_right = 9
 corner_radius_bottom_left = 9
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_862xp"]
-bg_color = Color(0, 1, 0.0745098, 1)
+bg_color = Color(0.52, 0.2964, 0.31876, 1)
 corner_radius_top_left = 9
 corner_radius_top_right = 9
 corner_radius_bottom_right = 9
 corner_radius_bottom_left = 9
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n7vlj"]
+load_path = "res://.godot/imported/hp.png-a1bc1edbbb69c0ce623cdf24d190966d.ctex"
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -767,16 +770,21 @@ visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -133.5
-offset_top = 165.0
-offset_right = 133.5
-offset_bottom = 190.0
+offset_left = -111.0
+offset_top = 161.0
+offset_right = 224.0
+offset_bottom = 192.0
 grow_horizontal = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_pd4ok")
 theme_override_styles/fill = SubResource("StyleBoxFlat_862xp")
 max_value = 20.0
 value = 20.0
 show_percentage = false
+
+[node name="Hp" type="Sprite2D" parent="HealthBar"]
+position = Vector2(112, 15)
+scale = Vector2(0.250963, 0.250963)
+texture = SubResource("CompressedTexture2D_n7vlj")
 
 [node name="ChlorineTimer" type="Timer" parent="."]
 
