@@ -49,6 +49,7 @@ func _ready() -> void:
 		health_bar.max_value = health
 		health_bar.value = health
 		health_bar.visible = true
+		%Hp.play(type)
 	var animation_type: String = "%s_%s" % (["grunt" if is_grunt else "boss", type])
 	animated_sprite.play(animation_type)
 	animated_sprite.scale.x = SCALE_FACTOR[animation_type]
