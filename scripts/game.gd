@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var path_follow_2d: PathFollow2D = $Player/Path2D/PathFollow2D
 @onready var label: Label = $GameOver/ColorRect/Label
+@onready var score_label: Label = $HUD/Score
 @onready var gameover: CanvasLayer = $GameOver
 @onready var levelup: CanvasLayer = $LevelUp
 
@@ -15,11 +16,13 @@ func _ready() -> void:
 	spawn_mob()
 	spawn_mob()
 
+
 func pickup_effect(type):
 	const pickup_effect_screen: Resource = preload("res://scenes/pickup_effect.tscn")
 	var new_scene: CanvasLayer = pickup_effect_screen.instantiate()
 	new_scene.set_meta("type", type)
 	add_child(new_scene)
+
 
 func spawn_mob() -> void:
 	const ENEMY: Resource = preload("res://scenes/enemy.tscn")
@@ -34,6 +37,7 @@ func spawn_mob() -> void:
 
 func increment_score(amount=1) -> void:
 	score += amount
+	score_label.text = str(score)
 
 
 func _on_mob_spawn_timer_timeout() -> void:
