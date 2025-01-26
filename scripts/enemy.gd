@@ -66,7 +66,7 @@ func get_poisoned() -> void:
 
 
 func explode() -> void:
-	const EXPLOSION: Resource = preload("res://scenes/smoke_explosion.tscn")
+	const EXPLOSION: Resource = preload("res://scenes/explosion.tscn")
 	var explosion: Node2D = EXPLOSION.instantiate()
 	get_parent().add_child(explosion)
 	explosion.global_position = global_position
