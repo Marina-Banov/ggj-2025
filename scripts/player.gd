@@ -71,9 +71,11 @@ func _physics_process(delta: float) -> void:
 
 	var enemies_in_range: Array[Node2D] = shooting_range.get_overlapping_bodies()
 	if enemies_in_range.size() > 0:
-		# TODO aim at the closest enemy, not the first
-		var target_enemy: Node2D = enemies_in_range[0]
-		target_position = target_enemy.global_position
+		var distances: Array = enemies_in_range.map(func(enemy: Node2D) -> float:
+			return position.distance_to(enemy.global_position)
+		)
+		var target_index: int = distances.find(distances.min())
+		target_position = enemies_in_range[target_index].global_position
 
 	health_bar.value = health
 	xp_bar.value = xp
