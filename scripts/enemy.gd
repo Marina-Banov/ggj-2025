@@ -57,6 +57,8 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	if not is_grunt:
+		return
 	var direction: Vector2 = global_position.direction_to(player.global_position)
 	velocity = direction * speed + pushback_force
 	move_and_slide()

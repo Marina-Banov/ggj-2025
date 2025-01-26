@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cg8v3gnoxlrle"]
+[gd_scene load_steps=14 format=3 uid="uid://cg8v3gnoxlrle"]
 
 [ext_resource type="PackedScene" uid="uid://c3xyhwelbeuur" path="res://scenes/player.tscn" id="1_3f3uf"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_16jqa"]
+[ext_resource type="PackedScene" uid="uid://cgds77hwfsfbj" path="res://scenes/map.tscn" id="2_47jpl"]
 [ext_resource type="Texture2D" uid="uid://c2abckfwpsjia" path="res://assets/interface/hp.png" id="3_1dgtj"]
 [ext_resource type="Texture2D" uid="uid://c0hd2v764s0u5" path="res://assets/interface/game_over.png" id="3_81pug"]
 [ext_resource type="PackedScene" uid="uid://c82wcpf0xsbso" path="res://scenes/gui_levelup.tscn" id="3_g73d3"]
@@ -45,17 +46,7 @@ script/source = "extends CanvasLayer
 y_sort_enabled = true
 script = ExtResource("1_16jqa")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -81
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_bottom = 0.056
-offset_left = -497.0
-offset_top = -207.0
-offset_right = 1791.0
-offset_bottom = 994.68
-color = Color(0, 0, 0, 1)
+[node name="Map" parent="." instance=ExtResource("2_47jpl")]
 
 [node name="Player" parent="." instance=ExtResource("1_3f3uf")]
 position = Vector2(647, 411)
