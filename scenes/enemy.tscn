@@ -1,4 +1,4 @@
-[gd_scene load_steps=177 format=3 uid="uid://vwdp52gf1jhy"]
+[gd_scene load_steps=181 format=3 uid="uid://vwdp52gf1jhy"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_8h14g"]
 [ext_resource type="Texture2D" uid="uid://h67gdxmypnh1" path="res://assets/boss_carbon/00.png" id="3_1k4bd"]
@@ -171,6 +171,10 @@
 [ext_resource type="Texture2D" uid="uid://ya7skf6rdcol" path="res://assets/grunt_oxygen/10.png" id="141_qosom"]
 [ext_resource type="Texture2D" uid="uid://uar8jsbk11o7" path="res://assets/grunt_oxygen/11.png" id="142_85hfl"]
 [ext_resource type="Texture2D" uid="uid://cst2mscs1knkv" path="res://assets/grunt_oxygen/12.png" id="143_a12e0"]
+[ext_resource type="Texture2D" uid="uid://cm0w0be6hangx" path="res://assets/interface/hp_carbon.png" id="172_pbkc0"]
+[ext_resource type="Texture2D" uid="uid://b63lusa3duxn" path="res://assets/interface/hp_chlorine.png" id="173_bm8ac"]
+[ext_resource type="Texture2D" uid="uid://4nln8d1nta63" path="res://assets/interface/hp_hydrogen.png" id="174_md8bw"]
+[ext_resource type="Texture2D" uid="uid://cw6jj20dtv7e5" path="res://assets/interface/hp_oxygen.png" id="175_wtvtn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sixs6"]
 animations = [{
@@ -742,14 +746,46 @@ corner_radius_bottom_right = 9
 corner_radius_bottom_left = 9
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_862xp"]
-bg_color = Color(0.52, 0.2964, 0.31876, 1)
+bg_color = Color(0.233333, 1, 0, 1)
 corner_radius_top_left = 9
 corner_radius_top_right = 9
 corner_radius_bottom_right = 9
 corner_radius_bottom_left = 9
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n7vlj"]
-load_path = "res://.godot/imported/hp.png-a1bc1edbbb69c0ce623cdf24d190966d.ctex"
+[sub_resource type="SpriteFrames" id="SpriteFrames_vnloe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("172_pbkc0")
+}],
+"loop": true,
+"name": &"carbon",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("173_bm8ac")
+}],
+"loop": true,
+"name": &"chlorine",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("174_md8bw")
+}],
+"loop": true,
+"name": &"hydrogen",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("175_wtvtn")
+}],
+"loop": true,
+"name": &"oxygen",
+"speed": 1.0
+}]
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -759,7 +795,7 @@ metadata/type = ""
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sixs6")
-animation = &"grunt_chlorine"
+animation = &"boss_hydrogen"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -27)
@@ -781,10 +817,12 @@ max_value = 20.0
 value = 20.0
 show_percentage = false
 
-[node name="Hp" type="Sprite2D" parent="HealthBar"]
+[node name="Hp" type="AnimatedSprite2D" parent="HealthBar"]
+unique_name_in_owner = true
 position = Vector2(112, 15)
 scale = Vector2(0.250963, 0.250963)
-texture = SubResource("CompressedTexture2D_n7vlj")
+sprite_frames = SubResource("SpriteFrames_vnloe")
+animation = &"oxygen"
 
 [node name="ChlorineTimer" type="Timer" parent="."]
 
