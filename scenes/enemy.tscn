@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=3 uid="uid://vwdp52gf1jhy"]
+[gd_scene load_steps=176 format=3 uid="uid://vwdp52gf1jhy"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_8h14g"]
 [ext_resource type="Texture2D" uid="uid://h67gdxmypnh1" path="res://assets/boss_carbon/00.png" id="3_1k4bd"]
@@ -29,35 +29,64 @@
 [ext_resource type="Texture2D" uid="uid://dywm1gdqjffpq" path="res://assets/boss_carbon/25.png" id="28_57hyh"]
 [ext_resource type="Texture2D" uid="uid://dxsly3s8p4u4w" path="res://assets/boss_carbon/26.png" id="29_wy5ty"]
 [ext_resource type="Texture2D" uid="uid://ddj6ofnv5smo8" path="res://assets/boss_carbon/27.png" id="30_hu01u"]
+[ext_resource type="Texture2D" uid="uid://dmrrh0f5x7r8v" path="res://assets/boss_carbon/30.png" id="31_hg448"]
 [ext_resource type="Texture2D" uid="uid://b7sb58jtyjmmj" path="res://assets/boss_carbon/28.png" id="31_jx3lk"]
 [ext_resource type="Texture2D" uid="uid://p4ki4hywstjg" path="res://assets/boss_carbon/29.png" id="32_53bp4"]
+[ext_resource type="Texture2D" uid="uid://cstaj7gf38i2c" path="res://assets/boss_carbon/31.png" id="32_jv1hf"]
 [ext_resource type="Texture2D" uid="uid://c6babose6tkua" path="res://assets/boss_chlorine/00.png" id="33_0joo5"]
+[ext_resource type="Texture2D" uid="uid://dwrkx4biqc2it" path="res://assets/boss_carbon/32.png" id="33_jpbxx"]
 [ext_resource type="Texture2D" uid="uid://c0g1pt6m4dncm" path="res://assets/boss_chlorine/01.png" id="34_tkgy7"]
+[ext_resource type="Texture2D" uid="uid://chtgkm35wu4tj" path="res://assets/boss_carbon/33.png" id="34_wm5r8"]
 [ext_resource type="Texture2D" uid="uid://b23ma7e54fdml" path="res://assets/boss_hydrogen/00.png" id="35_bcovu"]
+[ext_resource type="Texture2D" uid="uid://ddpwqwcqlikdj" path="res://assets/boss_carbon/34.png" id="35_pcgmm"]
+[ext_resource type="Texture2D" uid="uid://b5jvrtxfndo8s" path="res://assets/boss_carbon/35.png" id="36_1iaw4"]
 [ext_resource type="Texture2D" uid="uid://du7cvq0inl1cl" path="res://assets/boss_hydrogen/01.png" id="36_gpl7f"]
 [ext_resource type="Texture2D" uid="uid://bjlhug4nuhxgy" path="res://assets/boss_hydrogen/02.png" id="37_r26no"]
+[ext_resource type="Texture2D" uid="uid://ro0vyki7gxeg" path="res://assets/boss_carbon/36.png" id="37_tkjc8"]
+[ext_resource type="Texture2D" uid="uid://8cflu2iagx34" path="res://assets/boss_carbon/37.png" id="38_augt5"]
 [ext_resource type="Texture2D" uid="uid://i0id5hqo2sbc" path="res://assets/boss_hydrogen/03.png" id="38_d2lgn"]
+[ext_resource type="Texture2D" uid="uid://2ahf5rbkan1g" path="res://assets/boss_carbon/38.png" id="39_j4mug"]
 [ext_resource type="Texture2D" uid="uid://bkqttnu3mnnim" path="res://assets/boss_hydrogen/04.png" id="39_txcxd"]
+[ext_resource type="Texture2D" uid="uid://cdycfyhvi7724" path="res://assets/boss_carbon/39.png" id="40_ortdx"]
 [ext_resource type="Texture2D" uid="uid://c36imhxqwvwbj" path="res://assets/boss_hydrogen/05.png" id="40_r786v"]
+[ext_resource type="Texture2D" uid="uid://b3axy5c8nykpl" path="res://assets/boss_carbon/40.png" id="41_0avfl"]
 [ext_resource type="Texture2D" uid="uid://butjfdim5pkl3" path="res://assets/boss_hydrogen/06.png" id="41_1qj2n"]
+[ext_resource type="Texture2D" uid="uid://c5m0mq25me2ym" path="res://assets/boss_carbon/41.png" id="42_0ajbs"]
 [ext_resource type="Texture2D" uid="uid://qaqj14gip35n" path="res://assets/boss_hydrogen/07.png" id="42_hlrwy"]
+[ext_resource type="Texture2D" uid="uid://uegkkn8x3eh" path="res://assets/boss_carbon/42.png" id="43_t2ik6"]
 [ext_resource type="Texture2D" uid="uid://bqh2xltr5ql1c" path="res://assets/boss_hydrogen/08.png" id="43_x3bur"]
+[ext_resource type="Texture2D" uid="uid://7f1srykr0cu3" path="res://assets/boss_carbon/43.png" id="44_fcr2y"]
 [ext_resource type="Texture2D" uid="uid://cg0e3pgxlxrj1" path="res://assets/boss_hydrogen/09.png" id="44_p3lkv"]
 [ext_resource type="Texture2D" uid="uid://xursv4pyrclo" path="res://assets/boss_hydrogen/10.png" id="45_f86y0"]
+[ext_resource type="Texture2D" uid="uid://bq3gwowrnh1t6" path="res://assets/boss_carbon/44.png" id="45_yingy"]
+[ext_resource type="Texture2D" uid="uid://dvxr4cd33mreb" path="res://assets/boss_carbon/45.png" id="46_4iic5"]
 [ext_resource type="Texture2D" uid="uid://b51qaqveodf6t" path="res://assets/boss_hydrogen/11.png" id="46_vxukn"]
+[ext_resource type="Texture2D" uid="uid://llh6iq5pi0rn" path="res://assets/boss_carbon/46.png" id="47_kpgu8"]
 [ext_resource type="Texture2D" uid="uid://j6sxgyk8b0qf" path="res://assets/boss_hydrogen/12.png" id="47_tbrqs"]
+[ext_resource type="Texture2D" uid="uid://m37tvidd0wce" path="res://assets/boss_carbon/47.png" id="48_1h28k"]
 [ext_resource type="Texture2D" uid="uid://c3djewh6wsly2" path="res://assets/boss_hydrogen/13.png" id="48_a6usy"]
 [ext_resource type="Texture2D" uid="uid://cmi1iibsi7w7f" path="res://assets/boss_hydrogen/14.png" id="49_3p3tv"]
+[ext_resource type="Texture2D" uid="uid://bdw2ypmqj2rad" path="res://assets/boss_carbon/48.png" id="49_raion"]
+[ext_resource type="Texture2D" uid="uid://pdyesj6wnnvd" path="res://assets/boss_carbon/49.png" id="50_7blu4"]
 [ext_resource type="Texture2D" uid="uid://b83bny3l7qrbm" path="res://assets/boss_hydrogen/15.png" id="50_s7q3w"]
 [ext_resource type="Texture2D" uid="uid://bq6ye66w1canu" path="res://assets/boss_hydrogen/16.png" id="51_5puul"]
+[ext_resource type="Texture2D" uid="uid://tugc6hduo3as" path="res://assets/boss_carbon/50.png" id="51_wkf4q"]
+[ext_resource type="Texture2D" uid="uid://c1yot4o2kc8vf" path="res://assets/boss_carbon/51.png" id="52_losmt"]
 [ext_resource type="Texture2D" uid="uid://duvdfpi833fao" path="res://assets/boss_hydrogen/17.png" id="52_uvqyv"]
 [ext_resource type="Texture2D" uid="uid://d04appey051jx" path="res://assets/boss_hydrogen/18.png" id="53_h1e6u"]
+[ext_resource type="Texture2D" uid="uid://dm1c3s21qgncw" path="res://assets/boss_carbon/52.png" id="53_j0lqq"]
+[ext_resource type="Texture2D" uid="uid://ddyiv3t3bkovb" path="res://assets/boss_carbon/53.png" id="54_p8yht"]
 [ext_resource type="Texture2D" uid="uid://hp6k1q3wswfn" path="res://assets/boss_hydrogen/19.png" id="54_xn1gf"]
+[ext_resource type="Texture2D" uid="uid://dwh8mqkw8mbkw" path="res://assets/boss_carbon/54.png" id="55_5kpa7"]
 [ext_resource type="Texture2D" uid="uid://dtulbslmt0mjm" path="res://assets/boss_oxygen/00.png" id="55_nkl8i"]
+[ext_resource type="Texture2D" uid="uid://bi6h5k3rmx3ik" path="res://assets/boss_carbon/55.png" id="56_jov53"]
 [ext_resource type="Texture2D" uid="uid://dgm71gbi3uura" path="res://assets/boss_oxygen/01.png" id="56_stake"]
 [ext_resource type="Texture2D" uid="uid://c5bscjahmenqm" path="res://assets/boss_oxygen/02.png" id="57_pw7mb"]
+[ext_resource type="Texture2D" uid="uid://44ay60bbgugm" path="res://assets/boss_carbon/56.png" id="57_u4aqb"]
+[ext_resource type="Texture2D" uid="uid://c4wi0g1y2ep2l" path="res://assets/boss_carbon/57.png" id="58_81cs7"]
 [ext_resource type="Texture2D" uid="uid://bfhne4u63r4pf" path="res://assets/boss_oxygen/03.png" id="58_e43yb"]
 [ext_resource type="Texture2D" uid="uid://d3cqt07y37ol6" path="res://assets/boss_oxygen/04.png" id="59_8o6r8"]
+[ext_resource type="Texture2D" uid="uid://bqv1ikl2p8m5b" path="res://assets/boss_carbon/58.png" id="59_fper7"]
 [ext_resource type="Texture2D" uid="uid://74qcbabolc7v" path="res://assets/boss_oxygen/05.png" id="60_p5r3n"]
 [ext_resource type="Texture2D" uid="uid://0rj1asielcko" path="res://assets/boss_oxygen/06.png" id="61_erudd"]
 [ext_resource type="Texture2D" uid="uid://db4cosvs3ocn2" path="res://assets/boss_oxygen/07.png" id="62_gpgn0"]
@@ -235,6 +264,93 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("32_53bp4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_hg448")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_jv1hf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_jpbxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_wm5r8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_pcgmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_1iaw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_tkjc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_augt5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_j4mug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_ortdx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_0avfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_0ajbs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_t2ik6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_fcr2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_yingy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_4iic5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_kpgu8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_1h28k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_raion")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_7blu4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_wkf4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_losmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_j0lqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_p8yht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_5kpa7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_jov53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_u4aqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_81cs7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_fper7")
 }],
 "loop": true,
 "name": &"boss_carbon",
@@ -640,7 +756,7 @@ metadata/type = ""
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sixs6")
-animation = &"boss_chlorine"
+animation = &"grunt_chlorine"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -27)

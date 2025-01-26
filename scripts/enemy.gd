@@ -28,6 +28,17 @@ const SCALE_FACTOR = {
 	"grunt_oxygen": 0.094 * 1.1,
 }
 
+const FPS = {
+	"boss_carbon": 59 * 0.1,
+	"boss_chlorine": 2 * 1.0,
+	"boss_hydrogen": 22 * 0.2,
+	"boss_oxygen": 20 * 0.3,
+	"grunt_carbon": 18 * 0.3,
+	"grunt_chlorine": 10 * 0.5,
+	"grunt_hydrogen": 29 * 0.18,
+	"grunt_oxygen": 12 * 0.4,
+}
+
 
 func _ready() -> void:
 	type = get_meta("type")
@@ -42,6 +53,7 @@ func _ready() -> void:
 	animated_sprite.play(animation_type)
 	animated_sprite.scale.x = SCALE_FACTOR[animation_type]
 	animated_sprite.scale.y = SCALE_FACTOR[animation_type]
+	animated_sprite.speed_scale = FPS[animation_type]
 
 
 func _physics_process(_delta: float) -> void:
