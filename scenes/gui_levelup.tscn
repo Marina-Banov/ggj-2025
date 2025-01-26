@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c82wcpf0xsbso"]
+[gd_scene load_steps=8 format=3 uid="uid://c82wcpf0xsbso"]
 
 [ext_resource type="Script" path="res://scripts/gui_levelup.gd" id="1_c2llv"]
+[ext_resource type="Texture2D" uid="uid://d0txq0yywstpk" path="res://assets/interface/power_up_buttons/atk_speed_btn.png" id="2_kdemf"]
+[ext_resource type="Texture2D" uid="uid://byy3j3a0hfexf" path="res://assets/interface/power_up_buttons/dmg_btn.png" id="3_rwlkb"]
+[ext_resource type="Texture2D" uid="uid://bh3eqrbcms0fm" path="res://assets/interface/power_up_buttons/hp_btn.png" id="4_qhhoc"]
+[ext_resource type="Texture2D" uid="uid://b2pbq4a6vmjag" path="res://assets/interface/power_up_buttons/speed_btn.png" id="5_5vewl"]
+[ext_resource type="Texture2D" uid="uid://dv553jenf1rm3" path="res://assets/interface/power_up_buttons/bubble_speed_btn.png" id="6_ip572"]
+[ext_resource type="Texture2D" uid="uid://b1j5d3rcanryn" path="res://assets/interface/levelup.png" id="6_kwwxr"]
 
 [node name="LevelUp" type="CanvasLayer"]
 script = ExtResource("1_c2llv")
@@ -10,53 +16,76 @@ offset_right = 1576.0
 offset_bottom = 890.0
 color = Color(0.1404, 0.20994, 0.36, 0.517647)
 
-[node name="Label" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -11.5
-offset_right = 36.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 48
-text = "LEVEL UP"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="AtkSpeedBtn" type="Sprite2D" parent="."]
+position = Vector2(797, 553)
+scale = Vector2(0.267393, 0.267393)
+texture = ExtResource("2_kdemf")
 
-[node name="ButtonDamage" type="Button" parent="."]
-offset_left = 369.0
-offset_top = 550.0
-offset_right = 504.0
-offset_bottom = 635.0
-text = "DAMAGE"
+[node name="ButtonAttackSpeed" type="Button" parent="AtkSpeedBtn"]
+offset_left = -602.111
+offset_top = -295.446
+offset_right = -467.111
+offset_bottom = -210.446
+scale = Vector2(8.83225, 6.918)
+flat = true
 
-[node name="ButtonSpeed" type="Button" parent="."]
-offset_left = 587.0
-offset_top = 549.0
-offset_right = 722.0
-offset_bottom = 634.0
-text = "SPEED"
+[node name="DmgBtn" type="Sprite2D" parent="."]
+position = Vector2(798, 557)
+scale = Vector2(0.271045, 0.271045)
+texture = ExtResource("3_rwlkb")
 
-[node name="ButtonAttackSpeed" type="Button" parent="."]
-offset_left = 823.0
-offset_top = 549.0
-offset_right = 958.0
-offset_bottom = 634.0
-text = "ATTACK_SPEED"
+[node name="ButtonDamage" type="Button" parent="DmgBtn"]
+offset_left = -590.308
+offset_top = -295.154
+offset_right = -455.308
+offset_bottom = -210.154
+scale = Vector2(8.78305, 6.77073)
+flat = true
 
-[node name="ButtonHealth" type="Button" parent="."]
-offset_left = 1004.0
-offset_top = 550.0
-offset_right = 1139.0
-offset_bottom = 635.0
-text = "HEALTH"
+[node name="HpBtn" type="Sprite2D" parent="."]
+position = Vector2(371, 558)
+scale = Vector2(0.268397, 0.268397)
+texture = ExtResource("4_qhhoc")
 
-[connection signal="pressed" from="ButtonDamage" to="." method="_on_button_damage_pressed"]
-[connection signal="pressed" from="ButtonSpeed" to="." method="_on_button_speed_pressed"]
-[connection signal="pressed" from="ButtonAttackSpeed" to="." method="_on_button_attack_speed_pressed"]
-[connection signal="pressed" from="ButtonHealth" to="." method="_on_button_health_pressed"]
+[node name="ButtonHealth" type="Button" parent="HpBtn"]
+offset_left = -592.406
+offset_top = -294.34
+offset_right = -457.406
+offset_bottom = -209.34
+scale = Vector2(8.78271, 6.89314)
+flat = true
+
+[node name="SpeedBtn" type="Sprite2D" parent="."]
+position = Vector2(1230, 556)
+scale = Vector2(0.269207, 0.269207)
+texture = ExtResource("5_5vewl")
+
+[node name="ButtonSpeed" type="Button" parent="SpeedBtn"]
+offset_left = -594.338
+offset_top = -300.884
+offset_right = -459.338
+offset_bottom = -215.884
+scale = Vector2(8.81722, 6.78174)
+flat = true
+
+[node name="BubbleSpeedBtn" type="Sprite2D" parent="."]
+position = Vector2(814, 559)
+scale = Vector2(0.264657, 0.264657)
+texture = ExtResource("6_ip572")
+
+[node name="ButtonBubbleSpeed" type="Button" parent="BubbleSpeedBtn"]
+offset_left = -601.0
+offset_top = -310.0
+offset_right = 604.0
+offset_bottom = 283.0
+flat = true
+
+[node name="Levelup" type="Sprite2D" parent="."]
+position = Vector2(786, 195)
+texture = ExtResource("6_kwwxr")
+
+[connection signal="pressed" from="AtkSpeedBtn/ButtonAttackSpeed" to="." method="_on_button_attack_speed_pressed"]
+[connection signal="pressed" from="DmgBtn/ButtonDamage" to="." method="_on_button_damage_pressed"]
+[connection signal="pressed" from="HpBtn/ButtonHealth" to="." method="_on_button_health_pressed"]
+[connection signal="pressed" from="SpeedBtn/ButtonSpeed" to="." method="_on_button_speed_pressed"]
+[connection signal="pressed" from="BubbleSpeedBtn/ButtonBubbleSpeed" to="." method="_on_button_bubble_speed_pressed"]

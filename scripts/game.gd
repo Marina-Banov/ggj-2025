@@ -43,11 +43,11 @@ func _on_player_health_depleted() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("ui_accept") && gameover.visible:
 		Engine.time_scale = 1
 		get_tree().reload_current_scene()
 
 
 func _on_player_should_level_up() -> void:
-	levelup.visible = true
+	levelup.on_level_up()
 	Engine.time_scale = 0
