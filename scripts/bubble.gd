@@ -1,8 +1,8 @@
 extends Area2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var player: CharacterBody2D = get_node("/root/Game/Player")
 
-const SPEED: float = 300.
 const RANGE: float = 1000.
 
 var travelled_distance: float = 0.
@@ -15,8 +15,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Vector2.RIGHT.rotated(rotation)
-	position += direction * SPEED * delta
-	travelled_distance += SPEED * delta
+	position += direction * player.bubble_speed * delta
+	travelled_distance += player.bubble_speed * delta
 	if travelled_distance > RANGE:
 		queue_free()
 

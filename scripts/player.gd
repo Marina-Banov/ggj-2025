@@ -24,6 +24,7 @@ var health: float = 100.
 var shield_health: float = MAX_SHIELD_HEALTH
 var attack_speed: float = 0.35
 var damage: float = 1.
+var bubble_speed: float = 250.
 
 var target_position: Vector2 = Vector2()
 var has_bubbles: Array[String] = ["normal"]
@@ -106,6 +107,9 @@ func increase_speed() -> void:
 func increase_attack_speed() -> void:
 	attack_speed = max(0.1, attack_speed - 0.05)
 
+
+func increase_bubble_speed() -> void:
+	bubble_speed += 20.
 
 func heal() -> void:
 	health = min(100., health + 10.)
