@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cg8v3gnoxlrle"]
+[gd_scene load_steps=13 format=3 uid="uid://cg8v3gnoxlrle"]
 
 [ext_resource type="PackedScene" uid="uid://c3xyhwelbeuur" path="res://scenes/player.tscn" id="1_3f3uf"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_16jqa"]
+[ext_resource type="Texture2D" uid="uid://c2abckfwpsjia" path="res://assets/interface/hp.png" id="3_1dgtj"]
+[ext_resource type="Texture2D" uid="uid://c0hd2v764s0u5" path="res://assets/interface/game_over.png" id="3_81pug"]
 [ext_resource type="PackedScene" uid="uid://c82wcpf0xsbso" path="res://scenes/gui_levelup.tscn" id="3_g73d3"]
+[ext_resource type="Texture2D" uid="uid://s4nhspcfh0x6" path="res://assets/interface/xp.png" id="4_ol4ju"]
 [ext_resource type="PackedScene" uid="uid://vwdp52gf1jhy" path="res://scenes/enemy.tscn" id="4_p6mo0"]
 
 [sub_resource type="Curve2D" id="Curve2D_gdyfh"]
@@ -19,14 +22,14 @@ corner_radius_bottom_right = 9
 corner_radius_bottom_left = 9
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2b5i"]
-bg_color = Color(0, 1, 0.0745098, 1)
+bg_color = Color(1, 0, 0.0833335, 1)
 corner_radius_top_left = 9
 corner_radius_top_right = 9
 corner_radius_bottom_right = 9
 corner_radius_bottom_left = 9
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svj2v"]
-bg_color = Color(0.817551, 0.221341, 0, 1)
+bg_color = Color(0.1722, 0.442117, 0.82, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -70,25 +73,36 @@ autostart = true
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" type="ProgressBar" parent="HUD"]
-offset_left = 75.0
-offset_top = 53.0
-offset_right = 371.0
-offset_bottom = 80.0
+offset_left = 178.0
+offset_top = 77.0
+offset_right = 474.0
+offset_bottom = 104.0
+scale = Vector2(1.29408, 1.44453)
 theme_override_styles/background = SubResource("StyleBoxFlat_0ndm5")
 theme_override_styles/fill = SubResource("StyleBoxFlat_g2b5i")
 value = 50.0
 show_percentage = false
 
+[node name="Hp" type="Sprite2D" parent="HUD"]
+position = Vector2(299, 96)
+scale = Vector2(0.286031, 0.286031)
+texture = ExtResource("3_1dgtj")
+
 [node name="XPBar" type="ProgressBar" parent="HUD"]
-offset_left = 75.0
-offset_top = 87.0
-offset_right = 371.0
-offset_bottom = 114.0
+offset_left = 1100.0
+offset_top = 81.0
+offset_right = 1396.0
+offset_bottom = 108.0
+scale = Vector2(1.10593, 1.23584)
 theme_override_styles/background = SubResource("StyleBoxFlat_0ndm5")
 theme_override_styles/fill = SubResource("StyleBoxFlat_svj2v")
 max_value = 3.0
 value = 3.0
 show_percentage = false
+
+[node name="Xp" type="Sprite2D" parent="HUD"]
+position = Vector2(1311, 95)
+texture = ExtResource("4_ol4ju")
 
 [node name="GameOver" type="CanvasLayer" parent="."]
 process_mode = 1
@@ -110,16 +124,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -107.0
-offset_top = -57.0
-offset_right = 107.0
-offset_bottom = 57.0
+offset_left = -206.0
+offset_top = 156.0
+offset_right = 230.0
+offset_bottom = 369.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 76
 text = "GAME OVER
 again?"
 horizontal_alignment = 1
+
+[node name="GameOver" type="Sprite2D" parent="GameOver/ColorRect"]
+position = Vector2(785, 302)
+scale = Vector2(0.738053, 0.738053)
+texture = ExtResource("3_81pug")
 
 [node name="LevelUp" parent="." instance=ExtResource("3_g73d3")]
 visible = false
