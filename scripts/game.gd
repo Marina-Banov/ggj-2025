@@ -11,11 +11,15 @@ var score: int = 0
 
 
 func _ready() -> void:
+	Engine.time_scale = 0
 	spawn_mob()
 	spawn_mob()
 	spawn_mob()
 	spawn_mob()
 
+func _resume() -> void:
+	Engine.time_scale = 1
+	%StartScreen.visible = false
 
 func pickup_effect(type):
 	const pickup_effect_screen: Resource = preload("res://scenes/pickup_effect.tscn")
