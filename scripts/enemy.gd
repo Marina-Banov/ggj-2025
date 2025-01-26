@@ -5,7 +5,7 @@ signal enemy_died
 @onready var game: Node2D = get_node("/root/Game")
 @onready var player: CharacterBody2D = get_node("/root/Game/Player")
 
-@onready var slime: Node2D = $Slime
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var chlorine_timer: Timer = $ChlorineTimer
 
@@ -17,6 +17,17 @@ var is_poisoned: bool = false
 var damage_over_time_rate: float = 0.5
 var pushback_force: Vector2 = Vector2.ZERO
 
+const SCALE_FACTOR = {
+	"boss_carbon": 3.266 * 1.5,
+	"boss_chlorine": 1. * 1.5,
+	"boss_hydrogen": 1. * 1.5,
+	"boss_oxygen": 1. * 1.5,
+	"grunt_carbon": 0.103 * 1.1,
+	"grunt_chlorine": 1.015 * 1.1,
+	"grunt_hydrogen": 0.117 * 1.1,
+	"grunt_oxygen": 0.094 * 1.1,
+}
+
 
 func _ready() -> void:
 	type = get_meta("type")
@@ -27,9 +38,10 @@ func _ready() -> void:
 		health_bar.max_value = health
 		health_bar.value = health
 		health_bar.visible = true
-		scale.x = 3.
-		scale.y = 3.
-	slime.play_walk()
+	var animation_type: String = "%s_%s" % (["grunt" if is_grunt else "boss", type])
+	animated_sprite.play(animation_type)
+	animated_sprite.scale.x = SCALE_FACTOR[animation_type]
+	animated_sprite.scale.y = SCALE_FACTOR[animation_type]
 
 
 func _physics_process(_delta: float) -> void:
@@ -41,7 +53,7 @@ func _physics_process(_delta: float) -> void:
 
 func take_damage(damage=player.damage) -> void:
 	health -= damage
-	slime.play_hurt()
+	# animated_sprite.play("hurt")
 	health_bar.value = health
 	if health <= 0:
 		explode()
@@ -75,7 +87,7 @@ func explode() -> void:
 func drop_pickup() -> void:
 	const PICKUP: Resource = preload("res://scenes/pickup.tscn")
 	var pickup: Area2D = PICKUP.instantiate()
-	pickup.type = type
+	pickup.type = "normal" if is_grunt else type
 	get_parent().call_deferred("add_child", pickup)
 	pickup.global_position = global_position
 	pickup.pickup_collected.connect(player._on_pickup_collected)

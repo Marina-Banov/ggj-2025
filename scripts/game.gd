@@ -5,6 +5,7 @@ extends Node2D
 @onready var gameover: CanvasLayer = $GameOver
 @onready var levelup: CanvasLayer = $LevelUp
 
+const ENEMY_TYPES: Array[String] = ["carbon", "chlorine", "hydrogen", "oxygen"]
 var score: int = 0
 
 
@@ -20,7 +21,8 @@ func spawn_mob() -> void:
 	var new_mob: CharacterBody2D = ENEMY.instantiate()
 	path_follow_2d.progress_ratio = randf()
 	new_mob.global_position = path_follow_2d.global_position
-	new_mob.set_meta("type", "normal")
+	var type: String = ENEMY_TYPES[randi() % ENEMY_TYPES.size()]
+	new_mob.set_meta("type", type)
 	new_mob.set_meta("is_grunt", true)
 	add_child(new_mob)
 
