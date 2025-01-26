@@ -4,6 +4,8 @@ signal pickup_collected(type: String)
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+@onready var game: Node2D = get_node("/root/Game")
+
 var type: String = "normal"
 
 func _ready() -> void:
@@ -23,3 +25,6 @@ func _on_animation_finished() -> void:
 func _on_body_entered(_body: Node2D) -> void:
 	queue_free()
 	pickup_collected.emit(type)
+	if (type != "normal"):
+		game.pickup_effect(type)
+	

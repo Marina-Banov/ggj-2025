@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctwk4t3xhh74c"]
+
+[ext_resource type="Script" path="res://scripts/pickup_effect.gd" id="1_vswld"]
+[ext_resource type="Texture2D" uid="uid://durfkn02xdw55" path="res://assets/pickup_carbon/c02(1).png" id="2_h85su"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_vswld")
+metadata/type = ""
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -14.0
+offset_top = -11.0
+offset_right = 1554.0
+offset_bottom = 871.0
+color = Color(0.368627, 0.368627, 0.368627, 0.505882)
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+position = Vector2(802, 435)
+scale = Vector2(0.475699, 0.475699)
+texture = ExtResource("2_h85su")

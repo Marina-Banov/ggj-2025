@@ -15,6 +15,11 @@ func _ready() -> void:
 	spawn_mob()
 	spawn_mob()
 
+func pickup_effect(type):
+	const pickup_effect_screen: Resource = preload("res://scenes/pickup_effect.tscn")
+	var new_scene: CanvasLayer = pickup_effect_screen.instantiate()
+	new_scene.set_meta("type", type)
+	add_child(new_scene)
 
 func spawn_mob() -> void:
 	const ENEMY: Resource = preload("res://scenes/enemy.tscn")
