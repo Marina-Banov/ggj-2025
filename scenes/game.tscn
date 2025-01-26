@@ -2,13 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://c3xyhwelbeuur" path="res://scenes/player.tscn" id="1_3f3uf"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_16jqa"]
-[ext_resource type="PackedScene" uid="uid://cgds77hwfsfbj" path="res://scenes/map.tscn" id="2_47jpl"]
+[ext_resource type="PackedScene" path="res://scenes/map.tscn" id="2_47jpl"]
 [ext_resource type="Texture2D" uid="uid://c2abckfwpsjia" path="res://assets/interface/hp.png" id="3_1dgtj"]
 [ext_resource type="Texture2D" uid="uid://c0hd2v764s0u5" path="res://assets/interface/game_over.png" id="3_81pug"]
 [ext_resource type="PackedScene" uid="uid://c82wcpf0xsbso" path="res://scenes/gui_levelup.tscn" id="3_g73d3"]
 [ext_resource type="Texture2D" uid="uid://s4nhspcfh0x6" path="res://assets/interface/xp.png" id="4_ol4ju"]
 [ext_resource type="PackedScene" uid="uid://vwdp52gf1jhy" path="res://scenes/enemy.tscn" id="4_p6mo0"]
 [ext_resource type="PackedScene" uid="uid://dumjyv013fh2u" path="res://scenes/music.tscn" id="9_wrgfl"]
+[ext_resource type="Texture2D" uid="uid://cu4a713ebmhyg" path="res://assets/interface/title_screen.png" id="9_hxrfu"]
 
 [sub_resource type="Curve2D" id="Curve2D_gdyfh"]
 _data = {
@@ -67,6 +68,16 @@ position = Vector2(-590, -307)
 autostart = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="HUD"]
+offset_left = 717.0
+offset_top = 25.0
+offset_right = 923.0
+offset_bottom = 187.0
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HealthBar" type="ProgressBar" parent="HUD"]
 offset_left = 178.0
@@ -159,6 +170,31 @@ position = Vector2(2800, 2500)
 metadata/type = "oxygen"
 metadata/is_grunt = false
 
+[node name="StartScreen" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="TitleScreen" type="Sprite2D" parent="StartScreen"]
+position = Vector2(782.5, 436.5)
+scale = Vector2(0.819271, 0.819444)
+texture = ExtResource("9_hxrfu")
+
+[node name="Button" type="Button" parent="StartScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.0
+offset_top = 93.0
+offset_right = 148.0
+offset_bottom = 219.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 80
+text = "Play"
+
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="should_level_up" from="Player" to="." method="_on_player_should_level_up"]
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_mob_spawn_timer_timeout"]
+[connection signal="pressed" from="StartScreen/Button" to="." method="_resume"]
