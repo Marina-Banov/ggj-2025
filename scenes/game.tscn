@@ -1,15 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://cg8v3gnoxlrle"]
+[gd_scene load_steps=16 format=3 uid="uid://cg8v3gnoxlrle"]
 
 [ext_resource type="PackedScene" uid="uid://c3xyhwelbeuur" path="res://scenes/player.tscn" id="1_3f3uf"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_16jqa"]
-[ext_resource type="PackedScene" path="res://scenes/map.tscn" id="2_47jpl"]
+[ext_resource type="PackedScene" uid="uid://cgds77hwfsfbj" path="res://scenes/map.tscn" id="2_47jpl"]
 [ext_resource type="Texture2D" uid="uid://c2abckfwpsjia" path="res://assets/interface/hp.png" id="3_1dgtj"]
 [ext_resource type="Texture2D" uid="uid://c0hd2v764s0u5" path="res://assets/interface/game_over.png" id="3_81pug"]
 [ext_resource type="PackedScene" uid="uid://c82wcpf0xsbso" path="res://scenes/gui_levelup.tscn" id="3_g73d3"]
 [ext_resource type="Texture2D" uid="uid://s4nhspcfh0x6" path="res://assets/interface/xp.png" id="4_ol4ju"]
 [ext_resource type="PackedScene" uid="uid://vwdp52gf1jhy" path="res://scenes/enemy.tscn" id="4_p6mo0"]
-[ext_resource type="PackedScene" uid="uid://dumjyv013fh2u" path="res://scenes/music.tscn" id="9_wrgfl"]
 [ext_resource type="Texture2D" uid="uid://cu4a713ebmhyg" path="res://assets/interface/title_screen.png" id="9_hxrfu"]
+[ext_resource type="PackedScene" uid="uid://dumjyv013fh2u" path="res://scenes/music.tscn" id="9_wrgfl"]
 
 [sub_resource type="Curve2D" id="Curve2D_gdyfh"]
 _data = {

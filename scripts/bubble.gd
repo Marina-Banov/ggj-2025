@@ -22,15 +22,6 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	# Play sound before freeing the current node
-	var death_sound = preload("res://assets/music/bubblepop.mp3")  # Path to your sound file
-	var sfx_player = AudioStreamPlayer.new()
-	sfx_player.stream = death_sound
-	add_child(sfx_player)  # Add it to the root so it's not freed with the current node
-	sfx_player.play()
-	await get_tree().create_timer(0.05).timeout  # Replace 2.5 with the sound duration	
-	
-	queue_free()
 	if not body.has_method("take_damage"):
 		return
 
@@ -43,3 +34,14 @@ func _on_body_entered(body: Node2D) -> void:
 			body.add_pushback(pushback_dir)
 		"hydrogen":
 			body.decrease_speed()
+
+	# Play sound before freeing the current node
+	var death_sound = preload("res://assets/music/bubblepop.mp3")  # Path to your sound file
+	var sfx_player = AudioStreamPlayer.new()
+	sfx_player.stream = death_sound
+	add_child(sfx_player)  # Add it to the root so it's not freed with the current node
+	sfx_player.play()
+	await get_tree().create_timer(0.05).timeout  # Replace 2.5 with the sound duration	
+	
+	queue_free()
+	
