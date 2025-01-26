@@ -1,0 +1,107 @@
+[gd_scene load_steps=18 format=3 uid="uid://dmvut2a2ybvcq"]
+
+[ext_resource type="Texture2D" uid="uid://c2xw5ckd6hxwe" path="res://assets/pickup_oxygen/oxygen.png" id="1_2svj5"]
+[ext_resource type="Script" path="res://scripts/pickup.gd" id="1_046hn"]
+[ext_resource type="Texture2D" uid="uid://blby6nwufyqh6" path="res://assets/pickup_carbon/carbon.png" id="1_dhbbl"]
+[ext_resource type="Texture2D" uid="uid://b5qiukmvr6tq6" path="res://assets/pickup_chlorine/chlorine.png" id="2_u35d6"]
+[ext_resource type="Texture2D" uid="uid://c7bkrnr52w48l" path="res://assets/pickup_hydrogen/hydrogen.png" id="3_m4rr6"]
+[ext_resource type="Texture2D" uid="uid://pdl0hs4a5pqs" path="res://assets/pickup_normal/00.png" id="5_ctuje"]
+[ext_resource type="Texture2D" uid="uid://4f4mwobm7j61" path="res://assets/pickup_normal/01.png" id="6_7axbi"]
+[ext_resource type="Texture2D" uid="uid://6x2v3rf6q60u" path="res://assets/pickup_normal/02.png" id="7_unhmy"]
+[ext_resource type="Texture2D" uid="uid://b51rcoe3sena1" path="res://assets/pickup_normal/03.png" id="8_4c6xv"]
+[ext_resource type="Texture2D" uid="uid://xup8gca0kaux" path="res://assets/pickup_normal/04.png" id="9_sv23b"]
+[ext_resource type="Texture2D" uid="uid://dtc3nag0u1yc6" path="res://assets/pickup_normal/05.png" id="10_r6qfn"]
+[ext_resource type="Texture2D" uid="uid://b7tmtxjrcbawl" path="res://assets/pickup_normal/06.png" id="11_oid2i"]
+[ext_resource type="Texture2D" uid="uid://clehs4k5a8lfl" path="res://assets/pickup_normal/07.png" id="12_fxbfd"]
+[ext_resource type="Texture2D" uid="uid://ci1gncte8lqrj" path="res://assets/pickup_normal/08.png" id="13_nvdgs"]
+[ext_resource type="Texture2D" uid="uid://brrknfmfiynqf" path="res://assets/pickup_normal/09.png" id="14_3n43e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_05a0n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dhbbl")
+}],
+"loop": true,
+"name": &"carbon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u35d6")
+}],
+"loop": true,
+"name": &"chlorine",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_m4rr6")
+}],
+"loop": true,
+"name": &"hydrogen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ctuje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7axbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_unhmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4c6xv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_sv23b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_r6qfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_oid2i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fxbfd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_nvdgs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_3n43e")
+}],
+"loop": false,
+"name": &"normal",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2svj5")
+}],
+"loop": true,
+"name": &"oxygen",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_677xy"]
+radius = 46.0
+height = 154.667
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_046hn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.999998, -2)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_05a0n")
+animation = &"normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CapsuleShape2D_677xy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

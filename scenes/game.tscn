@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://c3xyhwelbeuur" path="res://scenes/player.tscn" id="1_3f3uf"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_16jqa"]
-[ext_resource type="PackedScene" uid="uid://c82wcpf0xsbso" path="res://scenes/level_up.tscn" id="3_g73d3"]
-[ext_resource type="PackedScene" uid="uid://rv4vrcj037e8" path="res://scenes/boss.tscn" id="4_7xgck"]
+[ext_resource type="PackedScene" uid="uid://c82wcpf0xsbso" path="res://scenes/gui_levelup.tscn" id="3_g73d3"]
+[ext_resource type="PackedScene" uid="uid://vwdp52gf1jhy" path="res://scenes/enemy.tscn" id="4_p6mo0"]
 
 [sub_resource type="Curve2D" id="Curve2D_gdyfh"]
 _data = {
@@ -124,25 +124,29 @@ horizontal_alignment = 1
 [node name="LevelUp" parent="." instance=ExtResource("3_g73d3")]
 visible = false
 
-[node name="BossCarbon" parent="." instance=ExtResource("4_7xgck")]
+[node name="BossCarbon" parent="." instance=ExtResource("4_p6mo0")]
 modulate = Color(0, 0.464338, 0.778787, 1)
 position = Vector2(-1043, 1445)
 metadata/type = "carbon"
+metadata/is_grunt = false
 
-[node name="BossChlorine" parent="." instance=ExtResource("4_7xgck")]
+[node name="BossChlorine" parent="." instance=ExtResource("4_p6mo0")]
 modulate = Color(1, 0.07, 0.07, 1)
 position = Vector2(2548, -647)
 metadata/type = "chlorine"
+metadata/is_grunt = false
 
-[node name="BossHydrogen" parent="." instance=ExtResource("4_7xgck")]
+[node name="BossHydrogen" parent="." instance=ExtResource("4_p6mo0")]
 modulate = Color(0.877138, 8.16298e-05, 0.689773, 1)
 position = Vector2(-975, -591)
 metadata/type = "hydrogen"
+metadata/is_grunt = false
 
-[node name="BossOxygen" parent="." instance=ExtResource("4_7xgck")]
+[node name="BossOxygen" parent="." instance=ExtResource("4_p6mo0")]
 modulate = Color(0, 0.811944, 0.178612, 1)
 position = Vector2(2306, 1688)
 metadata/type = "oxygen"
+metadata/is_grunt = false
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="should_level_up" from="Player" to="." method="_on_player_should_level_up"]

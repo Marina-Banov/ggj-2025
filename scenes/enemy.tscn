@@ -1,45 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://rv4vrcj037e8"]
+[gd_scene load_steps=6 format=3 uid="uid://vwdp52gf1jhy"]
 
-[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://scenes/slime.tscn" id="1_21e8m"]
-[ext_resource type="Script" path="res://scripts/boss.gd" id="1_xcr4f"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_8h14g"]
+[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://scenes/slime.tscn" id="2_pmclw"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5qck5"]
-radius = 52.0865
+[sub_resource type="CircleShape2D" id="CircleShape2D_u2rpx"]
+radius = 49.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gue8"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pd4ok"]
 bg_color = Color(0.129412, 0.0862745, 0, 0.835294)
 corner_radius_top_left = 9
 corner_radius_top_right = 9
 corner_radius_bottom_right = 9
 corner_radius_bottom_left = 9
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwkec"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_862xp"]
 bg_color = Color(0, 1, 0.0745098, 1)
 corner_radius_top_left = 9
 corner_radius_top_right = 9
 corner_radius_bottom_right = 9
 corner_radius_bottom_left = 9
 
-[node name="Boss" type="CharacterBody2D"]
-scale = Vector2(3, 3)
+[node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
-script = ExtResource("1_xcr4f")
+script = ExtResource("1_8h14g")
 metadata/type = ""
 
-[node name="Slime" parent="." instance=ExtResource("1_21e8m")]
+[node name="Slime" parent="." instance=ExtResource("2_pmclw")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -28)
-shape = SubResource("CircleShape2D_5qck5")
+position = Vector2(0, -27)
+shape = SubResource("CircleShape2D_u2rpx")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
+visible = false
 offset_left = -61.6667
 offset_top = 32.0
 offset_right = 66.3333
 offset_bottom = 44.0
-theme_override_styles/background = SubResource("StyleBoxFlat_7gue8")
-theme_override_styles/fill = SubResource("StyleBoxFlat_jwkec")
+theme_override_styles/background = SubResource("StyleBoxFlat_pd4ok")
+theme_override_styles/fill = SubResource("StyleBoxFlat_862xp")
 max_value = 20.0
 value = 20.0
 show_percentage = false

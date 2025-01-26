@@ -1,28 +1,28 @@
 extends CanvasLayer
 
-@onready var player = get_node("/root/Game/Player")
+@onready var player: CharacterBody2D = get_node("/root/Game/Player")
 
 
 func _on_button_damage_pressed() -> void:
-	player.damage += 1
+	player.increase_damage()
 	_resume()
 
 
 func _on_button_speed_pressed() -> void:
-	player.speed += 30
+	player.increase_speed()
 	_resume()
 
 
 func _on_button_attack_speed_pressed() -> void:
-	player.attack_speed = max(0.1, player.attack_speed - 0.05)
+	player.increase_attack_speed()
 	_resume()
 
 
 func _on_button_health_pressed() -> void:
-	player.health = min(100, player.health + 10)
+	player.heal()
 	_resume()
 
 
-func _resume():
+func _resume() -> void:
 	Engine.time_scale = 1
 	visible = false
